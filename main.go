@@ -21,7 +21,7 @@ func main() {
 	router.HandleFunc("/movies", handlers.Create_Movie).Methods("POST")        // create Movies
 	router.HandleFunc("/movies/{id}", handlers.Get_Movie).Methods("GET")       // Get Movie by Id
 	router.HandleFunc("/movies/{id}", handlers.Delete_Movie).Methods("DELETE") //  Delete Movie
-	//Router.HandleFunc()       //  Update Movie
+	router.HandleFunc("/movies/{id}", handlers.Update_Movie).Methods("PUT")    //  Update Movie
 
 	fmt.Println("Starting server at 8000 port")
 	if err := http.ListenAndServe(":8000", router); err != nil {
